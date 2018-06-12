@@ -1,6 +1,5 @@
 import csv
-
-import sqlalchemy
+import os
 
 
 def check_csv(path_to_csv_file, uniq_constraints, headers=True):
