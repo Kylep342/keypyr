@@ -1,8 +1,7 @@
 import csv
-import os
 
 
-def check_csv(path_to_csv_file, uniq_constraints, headers=True):
+def check_csv(path_to_csv_file, uniq_constraints, headers=True, header_list=None):
     #TODO: Work
     """
     check_csv is the main utility in this package.
@@ -24,6 +23,9 @@ def check_csv(path_to_csv_file, uniq_constraints, headers=True):
         reader = csv.reader(csv_file)
         if headers:
             header_list = next(reader)
+        elif not headers and headers_list is None:
+            print("Warning, {} has no header row, and no headers were provided.")
+            exit(1)
         constraint_locs = [[header_list.index(col)] for constraint['column_names'] in uniq_constraints for col in constraint]
         for row in reader:
             for constraint in constraint_locs:
