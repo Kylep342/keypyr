@@ -14,7 +14,7 @@ CREATE TABLE keypyr.people(
 
 CREATE TABLE keypyr.states(
   abbrev VARCHAR(2) PRIMARY KEY,
-  full_name VARCHAR(16),
+  full_name VARCHAR(16) UNIQUE,
   capital VARCHAR(32),
   largest_city VARCHAR(32),
   population INTEGER,
