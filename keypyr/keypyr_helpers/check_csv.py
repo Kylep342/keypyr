@@ -12,7 +12,13 @@ def check_csv(path_to_csv_file, uniq_constraints, headers=True, header_list=None
         headers             [BOOLEAN](True):    A flag to indicate if the csv file has column names in the first row
         header_list         [LIST](None):       An ordered list of column names if the csv does not have headers
 
+    Returns:
+        duplicate_keys      [DICT of LISTS]:    A map of constraints to lists of duplicate entries for that constraint
 
+
+    Notes:
+    It is currently assumed that the name of the csv file is the same as the name
+    of the db table to test against.
     """
 
     file_name = path_to_csv_file.split('/')[-1]

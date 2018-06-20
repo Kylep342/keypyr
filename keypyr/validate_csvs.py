@@ -60,7 +60,7 @@ if __name__ == '__main__':
     parser.add_argument(name='schema', default=None, help='Name of DB schema')
     parser.add_argument(name='exclude_tbls', default=None, help='List of names of tables to exclude')
     parser.add_argument(name='exclude_csvs', default=None, help='List of csv files to exclude')
-    parser.add_argument(name='-j', action='store_true', help='Flag inclusion dumps results to JSON')
+    parser.add_argument(name='-j', default=False, action='store_true', help='Flag inclusion dumps results to JSON')
 
     args = parser.parse_args()
 
