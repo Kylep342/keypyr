@@ -16,6 +16,7 @@ To install the required dependencies, run:
 pip install -r requirements.txt
 ```
 Only Postgres and MySQL connector packages are included so far
+
 If you need your own, feel free to pip it
 
 # Notes
