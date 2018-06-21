@@ -37,10 +37,10 @@ def check_csv(path_to_csv_file, uniq_constraints, headers=True, header_list=None
         else:
             print("Warning, {} has no header row, and no headers were provided.")
             exit(1)
-        constraint_locs = [[header_list.index(col)] for constraint['cols'] in uniq_constraints for col in constraint]
+        constraint_info = [{'name' : constraint['name'], 'locations' : [header_list.index(col)]} for constraint in uniq_constraints for col in constraint['cols']]
         for row in reader:
-            for constraint in constraint_locs:
-                _key = (row[i] for i in constraint)
+            for constraint in constraint_info:
+                _key = (row[loc] for loc in constraint['locations'])
                 if _key not in seen_keys.keys():
                     seen_keys[constraint['name']][_key] = True
                 else:

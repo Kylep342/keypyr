@@ -34,17 +34,19 @@ def _get_unique_cols(insp, tbl, schema=None):
     return const
 
 
-def conform_pk_and_uc(insp, tbl, schema=None):
+def conform_pk_and_uc(insp, tbl, schema=None, pk_in_csv=False):
     """
     Public function that calls both _get_unique_cols() and
     _get_primary_keys(), and then concatenates and returns both of the
     return values.
 
-    Conforming the key access allows for a single funciton call per
-    table in the main utility of the app, and allows for cleaner
-    iteration
+    Conforming the keys returned by each sqlalchemy function allows for
+    a single funciton call per table in the main utility of the app,
+    and allows for cleaner iteration
     """
-    return _get_primary_keys(insp, tbl, schema) + _get_unique_cols(insp, tbl, schema)
+    if pk_in_csv:
+        return _get_primary_keys(insp, tbl, schema) + _get_unique_cols(insp, tbl, schema)
+    return _get_uniq_cols(insp, tbl, schema)
 
 
 def get_table_column_names(insp, tbl, schema=None):

@@ -1,4 +1,4 @@
-data/*
+.DS_Store
 
-keypyr-venv
-keypyr-venv/**
+__pycache__/
+*.pyc
