@@ -3,8 +3,8 @@ import os
 
 import sqlalchemy
 
-import keypyr_helpers.check_csv as ccsv
-import keypyr_helpers.inspect_sql_db as isql
+from .keypyr_helpers import check_csv as ccsv
+from .keypyr_helpers import inspect_sql_db as isql
 
 
 PROJ_ROOT = os.path.dirname(os.path.abspath(__file__))
