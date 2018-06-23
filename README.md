@@ -1,8 +1,12 @@
 # keypyr
 A Python CLI for validating Unique Constraints for SQL DBs in source CSV files
 
+This tool is useful for checking third party (or first party) csv files
+that are loaded to an RDBMS for an ETL.
+
 # Setup & Installation
 Clone the repo
+
 In the project's root directory, run the following:
 ```python
 python -m venv keypyr_venv
