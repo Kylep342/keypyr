@@ -27,7 +27,7 @@ def _get_unique_cols(insp, tbl, schema=None):
     get_unique_constraints() function
     """
     const = []
-    ucs = insp.get_unique_constraints(tbl, schema):
+    ucs = insp.get_unique_constraints(tbl, schema)
     for uc in ucs:
         conformed_const = {'name' : uc['name'], 'cols' : uc['column_names']}
         const.append(conformed_const)
@@ -46,7 +46,7 @@ def conform_pk_and_uc(insp, tbl, schema=None, pk_in_csv=False):
     """
     if pk_in_csv:
         return _get_primary_keys(insp, tbl, schema) + _get_unique_cols(insp, tbl, schema)
-    return _get_uniq_cols(insp, tbl, schema)
+    return _get_unique_cols(insp, tbl, schema)
 
 
 def get_table_column_names(insp, tbl, schema=None):
