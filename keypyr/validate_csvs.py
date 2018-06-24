@@ -7,13 +7,10 @@ from .keypyr_helpers import check_csv as ccsv
 from .keypyr_helpers import inspect_sql_db as isql
 
 
-PROJ_ROOT = os.path.dirname(os.path.abspath(__file__))
-
 
 def keypyr(csv_file_dir,
          url,
          db_schema=None,
-         exclude_tbls=None,
          exclude_csvs=None,
          dups_to_JSON=False
     ):
