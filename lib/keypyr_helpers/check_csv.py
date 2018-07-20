@@ -40,9 +40,9 @@ def check_csv(path_to_csv_file, uniq_constraints, headers=True, header_list=None
         constraint_info = [{'name' : constraint['name'], 'locations' : [header_list.index(col)]} for constraint in uniq_constraints for col in constraint['cols']]
         for row in reader:
             for constraint in constraint_info:
-                _key = (row[loc] for loc in constraint['locations'])
-                if _key not in seen_keys.keys():
-                    seen_keys[constraint['name']][_key] = True
+                check_key = (row[loc] for loc in constraint['locations'])
+                if check_key not in seen_keys[constraint['name']].keys():
+                    seen_keys[constraint['name']][check_key] = True
                 else:
-                    duplicate_keys['.'.join((table_name, constraint['name']))].append(_key)
+                    duplicate_keys['.'.join((table_name, constraint['name']))].append(check_key)
     return duplicate_keys
